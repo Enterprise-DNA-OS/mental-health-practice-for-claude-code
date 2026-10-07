@@ -15,6 +15,8 @@ That layer used to be the whole product, because talking to a database was hard.
 
 - **A visual board.** Stages are a table you ask about, not cards you drag.
 - **A phone app.** It runs where Claude Code runs.
+- **Online booking, SMS reminders and telehealth.** Clients cannot book themselves and nothing texts them. Reminders are drafted to `drafts/` for a person to send.
+- **Medicare and DVA claiming.** Fees and receipts are recorded; claims go through your claiming service.
 - **A vendor help desk.** This is open source. Enterprise DNA supports the installed version for businesses that want someone to call.
 
 ## Who this fits

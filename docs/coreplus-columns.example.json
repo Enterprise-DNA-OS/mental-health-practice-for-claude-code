@@ -1,0 +1,25 @@
+{
+  "_read_me": "Column names differ between Coreplus backups and reports. Open each CSV, put its exact header names on the right, run import with --dry-run, and fix until every file previews cleanly. Files not listed here are kept in the source archive only. File names must match exactly.",
+  "files": {
+    "Clients.csv": {
+      "entity": "clients",
+      "columns": { "id": "Client ID", "first": "First Name", "last": "Last Name", "email": "Email", "dob": "Date of Birth", "phone": "Mobile" }
+    },
+    "Appointments.csv": {
+      "entity": "sessions",
+      "columns": { "id": "Appointment ID", "client_id": "Client ID", "at": "Start", "practitioner": "Practitioner", "status": "Status", "minutes": "Duration" },
+      "defaults": { "fee_cents": 0, "currency": "AUD" },
+      "statuses": { "Attended": "completed", "Booked": "booked", "Cancelled": "cancelled", "Did Not Attend": "dna" },
+      "practitioners": { "Hannah Lee": "Dr Hannah Lee" }
+    },
+    "Invoices.csv": {
+      "entity": "invoices",
+      "columns": { "id": "Invoice Number", "client_id": "Client ID", "session_id": "Appointment ID", "payer": "Bill To", "amount_cents": "Total Cents", "due": "Due Date" },
+      "defaults": { "currency": "AUD" }
+    },
+    "Payments.csv": {
+      "entity": "payments",
+      "columns": { "id": "Receipt Number", "invoice_id": "Invoice Number", "amount_cents": "Amount Cents", "date": "Date" }
+    }
+  }
+}

@@ -1,14 +1,29 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Mental Health Practice for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Group practice week",
+    "subtitle": "Read-only. Fictional data when seeded.",
     "sections": [
-      {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
-      }
+      { "title": "Needs attention", "sql": "select kind,client as who,detail from v_attention order by kind,client" },
+      { "title": "Waiting to be allocated", "sql": "select client,days_waiting,urgency,concern,preferred_site,preferred_discipline from v_intake order by urgency desc,days_waiting desc" },
+      { "title": "Next seven days", "sql": "select starts_at,practitioner,client,site,room,service,status from v_diary where starts_at>=now() and starts_at<now()+interval '7 days' order by starts_at" }
+    ]
+  },
+  {
+    "name": "team",
+    "title": "Team capacity and registration",
+    "sections": [
+      { "title": "Caseload", "sql": "select practitioner,discipline,takes_new,weekly_capacity,booked_next_7,free_next_7,active_clients from v_caseload order by free_next_7 desc" },
+      { "title": "CPD this registration year", "sql": "select practitioner,hours,peer_hours,target,peer_target,year_end from v_cpd order by practitioner" },
+      { "title": "Rooms next seven days", "sql": "select site,room,bookings_next_7,hours_next_7 from v_rooms order by site,room" }
+    ]
+  },
+  {
+    "name": "money",
+    "title": "Practice money",
+    "sections": [
+      { "title": "Owed to practitioners", "sql": "select practitioner,currency,receipts,received_cents,owed_cents,oldest_receipt from v_payouts_due order by practitioner" },
+      { "title": "Owed to the practice", "sql": "select name,client,payer,currency,balance_cents,days_overdue from v_debtors where balance_cents>0 order by days_overdue desc" }
     ]
   }
 ]

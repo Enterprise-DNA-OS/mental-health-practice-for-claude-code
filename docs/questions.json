@@ -1,0 +1,42 @@
+[
+  [
+    "Which practitioners have room for a new client next week, and are taking them?",
+    "caseload"
+  ],
+  [
+    "Who on the intake list has waited longest, and what did they ask for?",
+    "intake"
+  ],
+  [
+    "What does each practitioner get from fees received but not yet paid out?",
+    "payouts-due"
+  ],
+  [
+    "Which Better Access courses have no funded sessions left once bookings count?",
+    "referrals-due"
+  ],
+  [
+    "Which finished courses still need a report to the GP?",
+    "reports-due"
+  ],
+  [
+    "Which completed sessions lack a finalised note, by practitioner and days since?",
+    "notes-due"
+  ],
+  [
+    "Which psychologists are short of CPD or peer consultation hours this registration year?",
+    "cpd"
+  ],
+  [
+    "How many bookings and hours does each room have over the next seven days?",
+    "rooms"
+  ],
+  [
+    "Which late cancellations and no-shows have no fee decision yet?",
+    "cancellations"
+  ],
+  [
+    "Which services and item numbers did each practitioner deliver in the last 90 days?",
+    "service-mix"
+  ]
+]

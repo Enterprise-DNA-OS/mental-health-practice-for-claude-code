@@ -1,11 +1,11 @@
 ---
-description: Check the records against the rules this industry lives under (the ones listed in docs/compliance.md) and report what is missing, late, or about to breach, with the rule cited.
+description: Check the records against the rules in docs/compliance.md (Better Access courses and reports, consent, notes, registration, CPD, security evidence) and report what is breached or due, with the source.
 ---
 
-1. Read `docs/compliance.md`. Each rule has a name, the source it comes from, what a breach looks like in the data, and the SQL or command that finds it.
-2. Run each check. Use the CLI's `--json` output or a direct query through `scripts/lib/db.mjs`.
-3. Report as a table: rule, count, the worst example (name and days), the source. Order by severity: breached first, then due within 7 days, then clean.
-4. For anything breached, draft the fix the operator can approve: the record to update, the notice to send (draft to `drafts/`, never send), or the task to add.
-5. If a rule in `docs/compliance.md` is out of date, say so and stop. Do not guess at law. The operator confirms the rule, then you update the doc and the check together.
+1. Run `node scripts/practice.mjs compliance --json`.
+2. Read `docs/compliance.md`. Match each finding's `rule` to its section and source link.
+3. Report a table: rule, record, finding, source. Order: REPORT, COURSE, NOTE, CONSENT, ANNUAL, REGISTRATION, CPD, SECURITY.
+4. For each breach, offer the fix the operator can approve: `/draft-gp-letter` then `/report-sent` for a REPORT, `/finalise` for a NOTE, `/consent` once consent is verified, `/annual-use` after checking outside use, `/cpd-log` for hours, `/security-review` once evidence exists.
+5. If a rule in `docs/compliance.md` looks out of date, say so and stop. The operator confirms the rule; then update the doc, the `settings` row and the check together through `/customise`.
 
-Nothing here is legal advice. The doc records the rules the operator has told the system to enforce, with sources, and this command checks the data against them.
+These are record checks, not legal advice or a compliance certificate.
